@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenFlow Yoga</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .skeumorphic {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+            border-radius: 30px;
+        }
+        .timer-display {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(145deg, #2d3748, #1a202c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .pose-card {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+            transition: transform 0.3s ease;
+        }
+        .pose-card:hover {
+            transform: translateY(-5px);
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #4CAF50, #81C784);
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .meditation-button {
+            background: linear-gradient(145deg, #4CAF50, #388E3C);
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .meditation-button:active {
+            box-shadow: inset 4px 4px 8px rgba(0,0,0,0.2);
+            transform: translateY(2px);
+        }
+        .calendar-day {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            box-shadow: 4px 4px 8px #d1d1d1, -4px -4px 8px #ffffff;
+            transition: all 0.3s ease;
+        }
+        .calendar-day.active {
+            background: linear-gradient(145deg, #4CAF50, #388E3C);
+            color: white;
+        }
+        .stats-card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 20px;
+            box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Previous Nav Section Remains Same -->
+
+    <main class="container mx-auto p-4">
+        <!-- Weekly Progress Section (New) -->
+        <section class="skeumorphic p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Weekly Progress</h2>
+            <div class="grid grid-cols-7 gap-4 mb-6">
+                <div class="calendar-day active p-4 text-center rounded-lg">
+                    <h3>Mon</h3>
+                    <div class="text-2xl font-bold">✓</div>
+                </div>
+                <div class="calendar-day active p-4 text-center rounded-lg">
+                    <h3>Tue</h3>
+                    <div class="text-2xl font-bold">✓</div>
+                </div>
+                <div class="calendar-day active p-4 text-center rounded-lg">
+                    <h3>Wed</h3>
+                    <div class="text-2xl font-bold">✓</div>
+                </div>
+                <div class="calendar-day p-4 text-center rounded-lg">
+                    <h3>Thu</h3>
+                    <div class="text-2xl opacity-50">○</div>
+                </div>
+                <div class="calendar-day p-4 text-center rounded-lg">
+                    <h3>Fri</h3>
+                    <div class="text-2xl opacity-50">○</div>
+                </div>
+                <div class="calendar-day p-4 text-center rounded-lg">
+                    <h3>Sat</h3>
+                    <div class="text-2xl opacity-50">○</div>
+                </div>
+                <div class="calendar-day p-4 text-center rounded-lg">
+                    <h3>Sun</h3>
+                    <div class="text-2xl opacity-50">○</div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="stats-card p-4 text-center">
+                    <h3 class="text-lg text-gray-600">Total Minutes</h3>
+                    <p class="text-3xl font-bold text-emerald-600">180</p>
+                </div>
+                <div class="stats-card p-4 text-center">
+                    <h3 class="text-lg text-gray-600">Poses Mastered</h3>
+                    <p class="text-3xl font-bold text-emerald-600">12</p>
+                </div>
+                <div class="stats-card p-4 text-center">
+                    <h3 class="text-lg text-gray-600">Streak</h3>
+                    <p class="text-3xl font-bold text-emerald-600">3 days</p>
+                </div>
+                <div class="stats-card p-4 text-center">
+                    <h3 class="text-lg text-gray-600">Calories Burned</h3>
+                    <p class="text-3xl font-bold text-emerald-600">450</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Previous Current Session Section Remains Same -->
+        <!-- Previous Meditation Section Remains Same -->
+
+        <!-- Enhanced Pose Library -->
+        <section class="skeumorphic p-6" id="library">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Pose Library</h2>
+                <div class="flex gap-4">
+                    <button class="meditation-button text-white px-4 py-2 rounded-full">
+                        <i class="bi bi-filter"></i> Filter
+                    </button>
+                    <button class="meditation-button text-white px-4 py-2 rounded-full">
+                        <i class="bi bi-sort-down"></i> Sort
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Categories -->
+            <div class="flex gap-4 mb-6 overflow-x-auto pb-4">
+                <button class="meditation-button text-white px-6 py-2 rounded-full">All</button>
+                <button class="meditation-button text-white px-6 py-2 rounded-full">Beginner</button>
+                <button class="meditation-button text-white px-6 py-2 rounded-full">Intermediate</button>
+                <button class="meditation-button text-white px-6 py-2 rounded-full">Advanced</button>
+                <button class="meditation-button text-white px-6 py-2 rounded-full">Morning</button>
+                <button class="meditation-button text-white px-6 py-2 rounded-full">Evening</button>
+            </div>
+
+            <!-- Grid remains same as before but with more items -->
+        </section>
+
+        <!-- Personalized Recommendations -->
+        <section class="skeumorphic p-6 mt-8">
+            <h2 class="text-2xl font-bold mb-4">Recommended for You</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="pose-card p-4">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b" 
+                             alt="Morning Routine" class="w-full h-48 object-cover rounded-lg">
+                        <span class="absolute top-2 right-2 bg-emerald-500 text-white px-3 py-1 rounded-full text-sm">
+                            New
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-semibold mt-3">Morning Energy Boost</h3>
+                    <p class="text-gray-600">20 min • Beginner Friendly</p>
+                    <button class="meditation-button text-white w-full mt-4 py-2 rounded-full">
+                        Start Now
+                    </button>
+                </div>
+                <!-- Add more recommended routines -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Previous Script Section Remains Same -->
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
